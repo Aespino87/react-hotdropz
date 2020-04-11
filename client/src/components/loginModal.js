@@ -23,12 +23,17 @@ export class Login extends Component {
     //       });
     // }
     submitLogin(event){
-      // event.preventDefault();
-      // API.signIn(this.state.password, this.state.email)
-      // .then((res) => {
-      //   console.log(res.data)
-      // })
-      //   console.log("Success!!!") 
+      {
+        event.preventDefault();
+        API.signUp(this.state.password, this.state.email)
+        .then((res) => {
+          console.log(res.data)
+        })
+          console.log("Success!!!") 
+  
+          
+          
+      }
 
         
         
@@ -55,7 +60,7 @@ export class Login extends Component {
            
            <Modal
   actions={[
-    <Button flat modal="close" node="button" waves="green" onClick={() => {this.submitLogin();}}><Link to="./user">Login</Link></Button>,
+    <Button flat modal="close" node="button" waves="green" onClick={(e) => {this.submitLogin(e);}}><Link to="./user">Login</Link></Button>,
     <Button flat modal="close" node="button" waves="green" >Close</Button>
     
   ]}
@@ -82,9 +87,9 @@ export class Login extends Component {
 <div className="row">
     <form className="col s12">
       <div className="row">
-      <TextInput s={12} label="Email" id="textarea1"  name="email" onChange={(e) => {this.handleInput(e)}}></TextInput>
+      <TextInput s={12} label="Email" id="loginarea1"  name="email" onChange={(e) => {this.handleInput(e)}}></TextInput>
         
-        <TextInput s={12} label="Password" id="textarea3"  name="password" type="password" onChange={(e) => {this.handleInput(e)}}></TextInput>
+        <TextInput s={12} label="Password" id="loginarea2"  name="password" type="password" onChange={(e) => {this.handleInput(e)}}></TextInput>
         
       </div>
     </form>
